@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery - Choudhary Travels</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{background:#1b1410;color:#fff;}
+
+/* HEADER */
+header{
+background:#2a1f18;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 5%;
+flex-wrap:wrap;
+box-shadow:0 4px 15px rgba(0,0,0,0.5);
+}
+
+.logo{
+font-size:22px;
+font-weight:700;
+color:#f4b400;
+}
+
+.logo span{color:#fff;}
+
+nav ul{
+display:flex;
+flex-wrap:wrap;
+list-style:none;
+gap:15px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#fff;
+font-size:14px;
+transition:0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+color:#f4b400;
+}
+
+/* SECTION */
+section{
+padding:60px 5%;
+text-align:center;
+}
+
+h2{
+color:#f4b400;
+margin-bottom:40px;
+font-size:28px;
+}
+
+/* VEHICLE CAR */
+.vehicle-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.vehicle-card{
+background:#2a1f18;
+padding:15px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+transition:0.3s;
+position:relative;
+}
+
+.vehicle-card:hover{
+transform:translateY(-8px);
+}
+
+/* IMAGE SLIDER */
+.slider{
+position:relative;
+}
+
+.slider img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:10px;
+}
+
+/* BUTTONS */
+.prev, .next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.6);
+color:#fff;
+border:none;
+padding:6px 10px;
+cursor:pointer;
+}
+
+.prev{left:5px;}
+.next{right:5px;}
+
+.vehicle-card h3{
+color:#f4b400;
+margin:10px 0;
+}
+
+.vehicle-card p{
+font-size:14px;
+color:#ccc;
+}
+
+/* SOCIAL FLOAT */
+.social-float{
+position:fixed;
+right:15px;
+bottom:120px;
+display:flex;
+flex-direction:column;
+gap:12px;
+z-index:1000;
+}
+
+.social-float a{
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+color:white;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.5);
+transition:0.3s;
+}
+
+.social-float a:hover{
+transform:scale(1.1);
+}
+
+/* COLORS */
+.whatsapp{background:#25D366;}
+.instagram{background:#E1306C;}
+.facebook{background:#1877F2;}
+
+/* FOOTER */
+footer{
+background:#120d0a;
+padding:60px 5% 20px;
+margin-top:50px;
+}
+
+.footer-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.footer-box h3{
+color:#f4b400;
+margin-bottom:15px;
+}
+
+.footer-box p,
+.footer-box a{
+font-size:14px;
+color:#bbb;
+text-decoration:none;
+margin-bottom:8px;
+display:block;
+}
+
+.footer-box a:hover{
+color:#f4b400;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:30px;
+padding-top:15px;
+border-top:1px solid #444;
+color:#888;
+font-size:13px;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+h2{font-size:22px;}
+
+.social-float{
+right:10px;
+bottom:100px;
+}
+
+.social-float a{
+width:45px;
+height:45px;
+font-size:20px;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<div class="logo">Choudhary <span>Travels</span></div>
+
+<nav>
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li><a href="gettaxi.html">GET TAXI</a></li>
+<li><a href="services.html">SERVICES</a></li>
+<li><a href="gallery.html" class="active">GALLERY</a></li>
+<li><a href="contacts.html">CONTACT</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- VEHICLES -->
+<section>
+<h2>OUR VEHICLES</h2>
+
+<div class="vehicle-container">
+
+<!-- SEDAN -->
+<div class="vehicle-card">
+<div class="slider">
+<img id="sedan" src="https://images.unsplash.com/photo-1502877338535-766e1452684a">
+<button class="prev" onclick="change('sedan',-1)">❮</button>
+<button class="next" onclick="change('sedan',1)">❯</button>
+</div>
+<h3>Sedan</h3>
+<p>Front • Interior • Back View</p>
+</div>
+
+<!-- SUV -->
+<div class="vehicle-card">
+<div class="slider">
+<img id="suv" src="https://images.unsplash.com/photo-1542362567-b07e54358753">
+<button class="prev" onclick="change('suv',-1)">❮</button>
+<button class="next" onclick="change('suv',1)">❯</button>
+</div>
+<h3>SUV</h3>
+<p>Family Comfort • Interior • Exterior</p>
+</div>
+
+<!-- INNOVA -->
+<div class="vehicle-card">
+<div class="slider">
+<img id="innova" src="https://images.unsplash.com/photo-1493238792000-8113da705763">
+<button class="prev" onclick="change('innova',-1)">❮</button>
+<button class="next" onclick="change('innova',1)">❯</button>
+</div>
+<h3>Innova</h3>
+<p>Premium Ride • Luxury Interior</p>
+</div>
+
+<!-- TRAVELLER -->
+<div class="vehicle-card">
+<div class="slider">
+<img id="tempo" src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d">
+<button class="prev" onclick="change('tempo',-1)">❮</button>
+<button class="next" onclick="change('tempo',1)">❯</button>
+</div>
+<h3>Traveller</h3>
+<p>Group Travel • Spacious Seating</p>
+</div>
+
+</div>
+</section>
+
+<!-- SOCIAL ICONS -->
+<div class="social-float">
+
+<a href="https://wa.me/916376219433" target="_blank" class="whatsapp">💬</a>
+
+<a href="https://www.instagram.com/invites/contact/?igsh=eb4gp9tkajcd&utm_content=10rtyeg9" target="_blank" class="instagram">📸</a>
+
+<a href="https://www.fb.com/l/6lp1kJRRR" target="_blank" class="facebook">📘</a>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-box">
+<h3>About Us</h3>
+<p>Choudhary Tour & Travels provides safe, reliable and affordable taxi services across Delhi NCR.</p>
+</div>
+
+<div class="footer-box">
+<h3>Quick Links</h3>
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="gallery.html" class="active">Gallery</a>
+<a href="contacts.html">Contact</a>
+<a href="testinomails.html">Testimonials</a>
+</div>
+
+<div class="footer-box">
+<h3>Contact Info</h3>
+<p>📞 6376219433</p>
+<p>📍 H. 219 vishwas park ex, Gali. 8 near Dheeraj property, NEW DELHI, 110059</p>
+<p>✉ support@choudharytravels.com</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 CHOUDHARY TOUR & TRAVELS | All Rights Reserved
+</div>
+
+</footer>
+
+<script>
+
+let data={
+sedan:[
+"https://images.unsplash.com/photo-1502877338535-766e1452684a",
+"https://images.unsplash.com/photo-1494976388531-d1058494cdd8",
+"https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+],
+suv:[
+"https://images.unsplash.com/photo-1542362567-b07e54358753",
+"https://images.unsplash.com/photo-1519641471654-76ce0107ad1b"
+],
+innova:[
+"https://images.unsplash.com/photo-1493238792000-8113da705763",
+"https://images.unsplash.com/photo-1550355291-bbee04a92027"
+],
+tempo:[
+"https://images.unsplash.com/photo-1503736334956-4c8f8e92946d",
+"https://images.unsplash.com/photo-1563720223185-11003d516935"
+]
+};
+
+let index={sedan:0,suv:0,innova:0,tempo:0};
+
+function change(id,step){
+index[id]=(index[id]+step+data[id].length)%data[id].length;
+document.getElementById(id).src=data[id][index[id]];
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Book Taxi - Choudhary Tour & Travels</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{background:#1c120c;color:white;}
+
+/* NAVBAR */
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 5%;
+background:#2a1a12;
+flex-wrap:wrap;
+}
+
+.logo-box{display:flex;gap:10px;align-items:center;}
+.logo-box img{width:50px;border-radius:50%;}
+
+.nav-links a{
+color:white;margin:5px;text-decoration:none;font-size:14px;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:60px 20px;
+}
+
+.hero h1{font-size:28px;}
+.hero p{color:#f5c16c;}
+
+/* BOOKING */
+.booking-box{
+background:#2a1a12;
+padding:25px;
+margin:20px auto;
+max-width:650px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+.booking-box h2{
+text-align:center;
+margin-bottom:15px;
+color:#f5c16c;
+}
+
+.booking-box input,
+.booking-box select{
+width:100%;
+padding:12px;
+margin:6px 0;
+border:none;
+border-radius:6px;
+background:#3a2a20;
+color:white;
+}
+
+.booking-box label{
+font-size:13px;
+color:#f5c16c;
+}
+
+.booking-box button{
+width:100%;
+padding:14px;
+background:#25D366;
+border:none;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.booking-box button:hover{
+background:#1ebe5d;
+}
+
+/* PRICE BOX */
+.price-box{
+background:#f5c16c;
+color:black;
+padding:10px;
+margin-top:10px;
+text-align:center;
+border-radius:6px;
+font-weight:600;
+}
+
+/* MAP */
+#map{
+height:300px;
+margin:20px;
+border-radius:10px;
+}
+
+/* REVIEWS */
+.reviews{
+text-align:center;
+padding:30px;
+}
+
+.review{
+display:none;
+}
+
+.review.active{
+display:block;
+font-size:15px;
+}
+
+/* FLOAT SOCIAL ICONS */
+.social-float{
+position:fixed;
+right:15px;
+bottom:80px;
+display:flex;
+flex-direction:column;
+gap:12px;
+z-index:1000;
+}
+
+.social-float a{
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+color:white;
+font-size:20px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+transition:0.3s;
+}
+
+.social-float a:hover{
+transform:scale(1.1);
+}
+
+.whatsapp{background:#25D366;}
+.instagram{background:#E4405F;}
+.facebook{background:#1877F2;}
+
+/* CALL BTN */
+.call{
+position:fixed;
+bottom:0;
+width:100%;
+background:#f5c16c;
+text-align:center;
+padding:12px;
+color:black;
+display:none;
+font-weight:600;
+}
+
+@media(max-width:768px){
+.call{display:block;}
+.social-float{
+right:10px;
+bottom:90px;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<div class="logo-box">
+<img src="images/logo.jpeg">
+<h3>Choudhary Travels</h3>
+</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="gettaxi.html" class="active">Get Taxi</a>
+<a href="services.html">Services</a>
+<a href="gallery.html">Gallery</a>
+<a href="contact.html">Contact</a>
+<a href="testinomails.html">Testimonials</a>
+</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Book Taxi in 2 Minutes</h1>
+<p>Safe • Reliable • Affordable</p>
+</div>
+
+<!-- BOOKING FORM -->
+<div class="booking-box">
+
+<h2>Quick Booking</h2>
+
+<input id="name" placeholder="Your Name" required>
+<input id="number" placeholder="Phone Number" required>
+
+<label>Pickup Location</label>
+<input id="pickup" placeholder="Auto Detect / Enter Location">
+
+<label>Drop Location</label>
+<input id="drop" placeholder="Enter Destination">
+
+<label>Date & Time</label>
+<input type="datetime-local" id="datetime">
+
+<label>Trip Type</label>
+<select id="trip">
+<option>One Way</option>
+<option>Round Trip</option>
+</select>
+
+<label>Passengers</label>
+<select id="passengers">
+<option>1 Passenger</option>
+<option>2 Passengers</option>
+<option>3 Passengers</option>
+<option>4+ Passengers</option>
+</select>
+
+<label>Select Vehicle</label>
+<select id="vehicle" onchange="calculateFare()">
+<option value="0">Select Vehicle</option>
+<option value="11">Sedan ₹11/km</option>
+<option value="14">SUV ₹14/km</option>
+<option value="30">Traveller ₹30/km</option>
+</select>
+
+<div class="price-box" id="fare">Fare: ₹0</div>
+
+<button onclick="sendBooking()">Book on WhatsApp</button>
+
+</div>
+
+<!-- MAP -->
+<div id="map"></div>
+
+<!-- REVIEWS -->
+<div class="reviews">
+<h2>Customer Reviews</h2>
+
+<div class="review active">⭐ Excellent Service - Rajesh</div>
+<div class="review">⭐ Very Comfortable Ride - Amit</div>
+<div class="review">⭐ Best Taxi in Delhi - Suresh</div>
+
+</div>
+
+<!-- SOCIAL FLOAT ICONS -->
+<div class="social-float">
+
+<a href="https://wa.me/916376219433" class="whatsapp">💬</a>
+
+<a href="https://www.instagram.com/invites/contact/?igsh=eb4gp9tkajcd&utm_content=10rtyeg9" target="_blank" class="instagram">📷</a>
+
+<a href="https://www.fb.com/l/6lp1kJRRR" target="_blank" class="facebook">f</a>
+
+</div>
+
+<!-- CALL -->
+<a href="tel:6376219433" class="call">📞 Call Now</a>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+/* MAP */
+var map=L.map('map').setView([28.61,77.20],12);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+/* AUTO LOCATION */
+navigator.geolocation.getCurrentPosition(pos=>{
+let lat=pos.coords.latitude;
+let lon=pos.coords.longitude;
+
+fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+.then(res=>res.json())
+.then(data=>{
+pickup.value=data.display_name;
+});
+});
+
+/* FARE */
+function calculateFare(){
+let km=Math.floor(Math.random()*20)+5;
+let rate=vehicle.value;
+let total=km*rate;
+fare.innerHTML="Estimated Fare: ₹"+total+" ("+km+" km)";
+}
+
+/* WHATSAPP BOOKING */
+function sendBooking(){
+
+let text=`🚖 Taxi Booking Request
+
+👤 Name: ${name.value}
+📞 Phone: ${number.value}
+
+📍 Pickup: ${pickup.value}
+📍 Drop: ${drop.value}
+
+📅 Date & Time: ${datetime.value}
+🔁 Trip: ${trip.value}
+👥 Passengers: ${passengers.value}
+
+🚗 Vehicle: ${vehicle.options[vehicle.selectedIndex].text}
+
+💰 ${fare.innerText}`;
+
+window.open("https://wa.me/916376219433?text="+encodeURIComponent(text));
+
+alert("Booking sent on WhatsApp!");
+}
+
+/* REVIEWS AUTO */
+let r=0;
+setInterval(()=>{
+let reviews=document.querySelectorAll(".review");
+reviews[r].classList.remove("active");
+r=(r+1)%reviews.length;
+reviews[r].classList.add("active");
+},3000);
+
+</script>
+
+</body>
+</html>

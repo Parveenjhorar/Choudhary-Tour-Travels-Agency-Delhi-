@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Customer Reviews - Choudhary Travels</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+background:linear-gradient(135deg,#1b1410,#2a1f18);
+color:#fff;
+overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 5%;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:22px;
+font-weight:700;
+color:#f4b400;
+}
+
+.logo span{color:#fff;}
+
+nav ul{
+display:flex;
+flex-wrap:wrap;
+list-style:none;
+gap:15px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#fff;
+font-size:14px;
+transition:0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+color:#f4b400;
+}
+
+/* TITLE */
+.page-title{
+text-align:center;
+padding:50px 20px;
+}
+
+.page-title h1{
+font-size:32px;
+}
+
+/* SLIDER */
+.testimonial-section{
+padding:20px 5%;
+position:relative;
+}
+
+.slider{
+display:flex;
+overflow-x:auto;
+scroll-behavior:smooth;
+gap:20px;
+scroll-snap-type:x mandatory;
+}
+
+.slider::-webkit-scrollbar{display:none;}
+
+.testimonial-card{
+min-width:300px;
+max-width:300px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+transition:0.4s;
+scroll-snap-align:center;
+}
+
+.testimonial-card:hover{
+transform:translateY(-10px) scale(1.03);
+}
+
+.stars{
+color:#f4b400;
+margin-bottom:10px;
+font-size:18px;
+animation:blink 2s infinite alternate;
+}
+
+@keyframes blink{
+from{opacity:0.6;}
+to{opacity:1;}
+}
+
+.testimonial-card p{
+font-size:14px;
+color:#ddd;
+margin-bottom:10px;
+}
+
+.testimonial-card h3{
+color:#f4b400;
+}
+
+/* BUTTONS */
+.slider-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:#f4b400;
+border:none;
+padding:10px 15px;
+cursor:pointer;
+border-radius:50%;
+font-size:18px;
+}
+
+.prev{left:5px;}
+.next{right:5px;}
+
+/* GOOGLE */
+.google-reviews{
+padding:40px 5%;
+text-align:center;
+}
+
+.google-reviews h2{
+color:#f4b400;
+margin-bottom:20px;
+}
+
+/* RIGHT WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+font-size:20px;
+color:white;
+z-index:1000;
+}
+
+/* LEFT SOCIAL */
+.social-left{
+position:fixed;
+bottom:20px;
+left:20px;
+display:flex;
+flex-direction:column;
+gap:12px;
+z-index:1000;
+}
+
+.social-left a{
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+color:white;
+font-size:18px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+transition:0.3s;
+}
+
+.social-left a:hover{
+transform:scale(1.1);
+}
+
+.instagram{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);}
+.facebook{background:#1877F2;}
+
+/* FOOTER */
+footer{
+background:#120b08;
+padding:30px 5%;
+margin-top:40px;
+}
+
+.footer-container{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.footer-box{
+flex:1;
+min-width:250px;
+}
+
+.footer-box h3{
+color:#f4b400;
+margin-bottom:10px;
+}
+
+.footer-box a,
+.footer-box p{
+color:#aaa;
+font-size:14px;
+text-decoration:none;
+display:block;
+margin-bottom:5px;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:20px;
+border-top:1px solid #444;
+padding-top:10px;
+font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.page-title h1{font-size:24px;}
+
+.testimonial-card{
+min-width:260px;
+}
+
+.slider-btn{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Choudhary <span>Travels</span></div>
+
+<nav>
+<ul>
+<li><a href="#">HOME</a></li>
+<li><a href="#">SERVICES</a></li>
+<li><a href="#" class="active">REVIEWS</a></li>
+<li><a href="#">CONTACT</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="page-title">
+<h1>⭐ Customer Reviews</h1>
+</div>
+
+<section class="testimonial-section">
+
+<button class="slider-btn prev" onclick="prevSlide()">❮</button>
+
+<div class="slider" id="slider">
+
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>Best taxi service. Driver on time aur safe journey.</p>
+<h3>Rahul Sharma</h3>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>Highly recommended. Car clean aur comfortable thi.</p>
+<h3>Neha Gupta</h3>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>Jaipur trip smooth raha. Driver polite tha.</p>
+<h3>Amit Verma</h3>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>Airport pickup perfect time par hua.</p>
+<h3>Priya Singh</h3>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>Family trip ke liye best service.</p>
+<h3>Manish Kumar</h3>
+</div>
+
+</div>
+
+<button class="slider-btn next" onclick="nextSlide()">❯</button>
+
+</section>
+
+<section class="google-reviews">
+<h2>Live Google Reviews</h2>
+
+<script src="https://static.elfsight.com/platform/platform.js" async></script>
+<div class="elfsight-app-YOUR_GOOGLE_PLACE_ID"></div>
+
+</section>
+
+<!-- RIGHT WHATSAPP -->
+<a href="https://wa.me/916376219433" class="whatsapp" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- LEFT SOCIAL -->
+<div class="social-left">
+
+<a href="https://www.instagram.com/invites/contact/?igsh=eb4gp9tkajcd&utm_content=10rtyeg9" class="instagram" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://www.fb.com/l/6lp1kJRRR" class="facebook" target="_blank">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+</div>
+
+<footer>
+
+<div class="footer-container">
+
+<div class="footer-box">
+<h3>About Us</h3>
+<p>Safe & reliable cab service across India.</p>
+</div>
+
+<div class="footer-box">
+<h3>Quick Links</h3>
+<a href="index.html">Home</a>
+<a href="gettaxi.html" >Get Taxi</a>
+<a href="services.html"class="active">Services</a>
+<a href="gallery.html">Gallery</a>
+<a href="contact.html">Contact</a>
+<a href="testinomails.html"class="active">Testimonials</a>
+</div>
+
+<div class="footer-box">
+<h3>Contact</h3>
+<p>📞 6376219433</p>
+<p>📍 H. 219 vishwas park ex, Gali. 8 near Dheeraj property, NEW DELHI, 110059</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Choudhary Travels
+</div>
+
+</footer>
+
+<script>
+
+let slider=document.getElementById('slider');
+
+function nextSlide(){
+slider.scrollBy({left:320,behavior:'smooth'});
+}
+
+function prevSlide(){
+slider.scrollBy({left:-320,behavior:'smooth'});
+}
+
+setInterval(()=>{ nextSlide(); },3000);
+
+</script>
+
+</body>
+</html>

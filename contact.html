@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us - Choudhary Tour & Travels</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{background:#1b1410;color:#fff;}
+
+/* HEADER */
+header{
+background:#2a1f18;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 5%;
+flex-wrap:wrap;
+}
+
+.logo{font-size:22px;color:#f4b400;font-weight:bold;}
+.logo span{color:#fff;}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:15px;
+flex-wrap:wrap;
+}
+
+nav ul a{color:#fff;text-decoration:none;font-size:14px;}
+nav ul a.active{color:#f4b400;}
+
+/* TITLE */
+.page-title{
+text-align:center;
+padding:50px 20px;
+}
+
+.page-title h1{
+font-size:32px;
+color:#f4b400;
+}
+
+/* CONTACT */
+.contact-section{
+display:flex;
+flex-wrap:wrap;
+gap:30px;
+padding:20px 5%;
+}
+
+.contact-info, .contact-form{
+flex:1;
+min-width:300px;
+}
+
+.contact-info h2,
+.contact-form h2{
+color:#f4b400;
+margin-bottom:15px;
+}
+
+.info-box p{
+margin-bottom:10px;
+}
+
+/* SOCIAL TEXT LINKS */
+.social-links a{
+display:block;
+margin-top:8px;
+color:#25D366;
+text-decoration:none;
+}
+
+/* FORM */
+.contact-form{
+background:#2a1f18;
+padding:25px;
+border-radius:10px;
+}
+
+.contact-form input{
+width:100%;
+padding:12px;
+margin-bottom:12px;
+border:none;
+border-radius:6px;
+background:#3a2c23;
+color:#fff;
+}
+
+.contact-form button{
+width:100%;
+padding:12px;
+background:#f4b400;
+border:none;
+font-weight:bold;
+cursor:pointer;
+border-radius:6px;
+}
+
+/* REVIEWS */
+.reviews{
+padding:40px 5%;
+text-align:center;
+}
+
+.review-box{
+background:#2a1f18;
+padding:15px;
+border-radius:10px;
+margin:10px;
+display:inline-block;
+max-width:300px;
+}
+
+/* MAP */
+.map iframe{
+width:100%;
+height:300px;
+border:0;
+margin-top:30px;
+border-radius:10px;
+}
+
+/* FOOTER */
+footer{
+background:#2a1f18;
+padding:20px;
+text-align:center;
+margin-top:30px;
+}
+
+/* FLOAT SOCIAL ICONS */
+.social-float{
+position:fixed;
+right:15px;
+bottom:120px;
+display:flex;
+flex-direction:column;
+gap:12px;
+z-index:1000;
+}
+
+.social-float a{
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+color:white;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.5);
+transition:0.3s;
+}
+
+.social-float a:hover{
+transform:scale(1.1);
+}
+
+.whatsapp{background:#25D366;}
+.instagram{background:#E1306C;}
+.facebook{background:#1877F2;}
+
+/* CALL BUTTON (MOBILE) */
+.call-bottom{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#f4b400;
+text-align:center;
+padding:12px;
+font-weight:bold;
+display:none;
+}
+
+.call-bottom a{
+color:black;
+text-decoration:none;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.call-bottom{display:block;}
+
+.social-float{
+right:10px;
+bottom:100px;
+}
+
+.social-float a{
+width:45px;
+height:45px;
+font-size:20px;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<div class="logo">Choudhary<span>Travels</span></div>
+
+<nav>
+<ul>
+<a href="index.html">Home</a>
+<a href="gettaxi.html">Get Taxi</a>
+<a href="services.html">Services</a>
+<a href="gallery.html">Gallery</a>
+<a href="contacts.html" class="active">Contact</a>
+<a href="testinomails.html">Testimonials</a>
+</ul>
+</nav>
+</header>
+
+<div class="page-title">
+<h1>CONTACT & BOOK TAXI</h1>
+</div>
+
+<section class="contact-section">
+
+<div class="contact-info">
+<h2>24/7 Taxi Booking</h2>
+
+<p>Call or WhatsApp us for instant taxi booking.</p>
+
+<div class="info-box">
+<p>📞 6376219433</p>
+<p>📍 H. 219 vishwas park ex, Gali. 8 near Dheeraj property, NEW DELHI, 110059</p>
+<p>✉ support@choudharytravels.com</p>
+</div>
+
+<div class="social-links">
+<a href="https://www.fb.com/l/6lp1kJRRR" target="_blank">Facebook</a>
+<a href="https://www.instagram.com/invites/contact/?igsh=eb4gp9tkajcd&utm_content=10rtyeg9" target="_blank">Instagram</a>
+</div>
+
+</div>
+
+<div class="contact-form">
+<h2>Book Your Taxi</h2>
+
+<form onsubmit="sendBooking(event)">
+
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<input type="text" id="pickup" placeholder="Pickup Location" required>
+<input type="text" id="drop" placeholder="Drop Location" required>
+<input type="datetime-local" id="datetime" required>
+
+<button type="submit">Book Now</button>
+
+</form>
+</div>
+
+</section>
+
+<section class="reviews">
+<h2>Customer Reviews</h2>
+
+<div class="review-box">⭐️⭐️⭐️⭐️⭐️ <br> Best taxi service! - Rahul</div>
+<div class="review-box">⭐️⭐️⭐️⭐️⭐️ <br> On time & clean car - Neha</div>
+<div class="review-box">⭐️⭐️⭐️⭐️⭐️ <br> Very professional - Amit</div>
+
+</section>
+
+<div class="map">
+<iframe src="https://maps.google.com/maps?q=New%20Delhi%20110059&output=embed"></iframe>
+</div>
+
+<footer>
+© 2026 Choudhary Tour & Travels
+</footer>
+
+<!-- SOCIAL FLOAT -->
+<div class="social-float">
+
+<a href="https://wa.me/916376219433" target="_blank" class="whatsapp">💬</a>
+
+<a href="https://www.instagram.com/invites/contact/?igsh=eb4gp9tkajcd&utm_content=10rtyeg9" target="_blank" class="instagram">📸</a>
+
+<a href="https://www.fb.com/l/6lp1kJRRR" target="_blank" class="facebook">📘</a>
+
+</div>
+
+<!-- CALL BUTTON -->
+<div class="call-bottom">
+<a href="tel:6376219433">📞 Call Now</a>
+</div>
+
+<script>
+
+function sendBooking(e){
+e.preventDefault();
+
+let name = document.getElementById("name").value;
+let phone = document.getElementById("phone").value;
+let pickup = document.getElementById("pickup").value;
+let drop = document.getElementById("drop").value;
+let datetime = document.getElementById("datetime").value;
+
+let msg = `Taxi Booking:%0AName:${name}%0APhone:${phone}%0APickup:${pickup}%0ADrop:${drop}%0ADate:${datetime}`;
+
+window.open(`https://wa.me/916376219433?text=${msg}`, "_blank");
+}
+
+</script>
+
+</body>
+</html>
