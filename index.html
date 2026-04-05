@@ -2,349 +2,196 @@
 <html lang="en">
 <head>
 
-<title>Best Taxi Service in Delhi | Sedan, SUV & Traveller Booking</title>
-
-<meta name="description" content="Book reliable & affordable taxi service from Delhi to All India including Agra, Jaipur, Manali. 24x7 cab service available.">
-
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Taxi Service in Delhi | Tempo Traveller in Delhi | Choudhary Travels</title>
+
+<meta name="description" content="Best taxi service in Delhi NCR. Book tempo traveller, sedan, SUV & outstation taxi in Delhi. 24x7 cab service in Uttam Nagar, Dwarka, Janakpuri. Call now!">
+
+<meta name="keywords" content="Taxi Service in Delhi, Tempo Traveller in Delhi, Outstation Taxi Delhi, Delhi Tour & Travels, Cab Booking Delhi">
+
+<!-- SCHEMA -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "LocalBusiness",
+"name": "Choudhary Tour & Travels",
+"telephone": "+916376219433",
+"address": {
+"@type": "PostalAddress",
+"streetAddress": "Vishwas Park",
+"addressLocality": "New Delhi",
+"postalCode": "110059",
+"addressCountry": "IN"
+}
+}
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#1b1410;color:#fff;}
 
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-font-family:'Poppins',sans-serif;
-background:#1c120c;
-color:white;
-}
-
-.topbar{
-background:#2a1a12;
-padding:10px;
-text-align:center;
-color:#f5c16c;
-font-weight:600;
-}
-
-.navbar{
+header{
+background:#2a1f18;
 display:flex;
 justify-content:space-between;
-align-items:center;
 padding:15px 5%;
-background:#2a1a12;
-flex-wrap:wrap;
 }
 
-.logo-box{
-display:flex;
-align-items:center;
-gap:10px;
-}
+.logo{color:#f4b400;font-weight:bold;}
 
-.logo-box img{
-width:55px;
-height:55px;
-border-radius:50%;
-border:2px solid #f5c16c;
-}
-
-.nav-links{
-display:flex;
-flex-wrap:wrap;
-align-items:center;
-}
-
-.nav-links a{
-color:white;
-text-decoration:none;
-margin:8px;
-font-size:14px;
-}
-
-/* HEADER SOCIAL ICONS */
-.header-social{
-display:flex;
-gap:10px;
-margin-left:15px;
-}
-
-.header-social a{
-width:35px;
-height:35px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-color:#fff;
-font-size:16px;
-text-decoration:none;
-}
-
-.whatsapp{background:#25D366;}
-.instagram{background:#E4405F;}
-.facebook{background:#1877F2;}
+nav a{color:#fff;margin:10px;text-decoration:none;}
 
 .hero{
-background:url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c') center/cover;
-padding:80px 20px;
-position:relative;
+text-align:center;
+padding:60px 20px;
 }
 
-.hero::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-}
-
-.hero-wrapper{
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-position:relative;
-z-index:2;
-max-width:1200px;
-margin:auto;
-}
-
-.hero-content{
-max-width:500px;
-}
-
-.hero h1{
-font-size:32px;
-margin-bottom:10px;
-}
-
-.hero h2{
-font-size:18px;
-color:#f5c16c;
-margin-bottom:10px;
-}
+.hero h1{color:#f4b400;}
 
 .btn{
+background:#25D366;
+padding:12px 20px;
 display:inline-block;
-margin:10px 10px 0 0;
-padding:12px 25px;
-border-radius:25px;
+margin-top:15px;
+color:#fff;
 text-decoration:none;
-font-weight:600;
+border-radius:6px;
 }
 
-.call-btn{background:#f5c16c;color:black;}
-.whatsapp-btn{background:#25D366;color:white;}
+section{padding:40px 5%;}
 
-.booking-form{
-background:#2a1a12;
-padding:25px;
-border-radius:15px;
-width:320px;
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
-transform:perspective(1000px) rotateY(-5deg);
-transition:0.3s;
-}
-
-.booking-form:hover{
-transform:perspective(1000px) rotateY(0deg) scale(1.03);
-}
-
-.booking-form h3{
-text-align:center;
-margin-bottom:15px;
-color:#f5c16c;
-}
-
-.booking-form input,
-.booking-form select{
-width:100%;
-padding:10px;
-margin:8px 0;
-border:none;
-border-radius:8px;
-}
-
-.booking-form button{
-width:100%;
-padding:12px;
-background:#f5c16c;
-border:none;
-border-radius:25px;
-font-weight:600;
-cursor:pointer;
-}
-
-.section{
-padding:50px 20px;
-text-align:center;
-}
-
-.section h2{
-color:#f5c16c;
-margin-bottom:30px;
-}
-
-.card-container{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
-.card{
-width:250px;
-background:#2a1a12;
-padding:15px;
+.box{
+background:#2a1f18;
+padding:20px;
 border-radius:10px;
 }
 
-.card img{
+.box img{
 width:100%;
-border-radius:8px;
+height:150px;
+object-fit:cover;
+border-radius:10px;
 }
 
-.footer{
-background:#120b08;
-padding:50px 20px 20px;
+.content{
+max-width:900px;
+margin:auto;
+line-height:1.8;
+color:#ccc;
 text-align:center;
 }
 
-@media(max-width:768px){
-.hero-wrapper{flex-direction:column;gap:20px;}
-.booking-form{width:100%;}
-.nav-links{justify-content:center;}
-}
-
+/* FLOAT */
 .whatsapp{
+position:fixed;
+bottom:80px;
+right:15px;
 background:#25D366;
-width:35px;
-height:35px;
-display:flex;
-align-items:center;
-justify-content:center;
+padding:15px;
 border-radius:50%;
-color:white;
-text-decoration:none;
 }
 
-.whatsapp i{
-font-size:18px;
+/* CALL */
+.call{
+position:fixed;
+bottom:0;
+width:100%;
+background:#f4b400;
+text-align:center;
+padding:12px;
+color:black;
 }
-
 </style>
 
 </head>
 
 <body>
 
-<div class="topbar">
-📞 Call Now: 6376219433 | CHOUDHARY TOUR & TRAVELS
-</div>
-
-<div class="navbar">
-
-<div class="logo-box">
-<img src="logo.jpeg">
-<h3>Choudhary Travels</h3>
-</div>
-
-<div class="nav-links">
-<a href="index.html"class="active">Home</a>
-<a href="gettaxi.html">Get Taxi</a>
+<header>
+<div class="logo">Choudhary Travels</div>
+<nav>
+<a href="index.html">Home</a>
 <a href="services.html">Services</a>
-<a href="gallery.html">Gallery</a>
- <a href="contact.html">Contact</a>
-<a href="testinomails.html">Testimonials</a>
-<!-- <a href="contact.html">Contact</a>
-<a href="testinomails.html">Testimonials</a> -->
+<a href="gettaxi.html">Book Taxi</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
 
-<!-- SOCIAL ICONS IN HEADER -->
-<div class="header-social">
-<a href="https://wa.me/916376219433" class="whatsapp" target="_blank">💬</a> 
-
-<i class="fa fa-whatsapp"></i>
-</a>
-
-<i class="fa-brands fa-whatsapp"></i>
-</a>
-
-<a href="https://www.instagram.com" class="instagram" target="_blank">📸</a>
-<a href="https://www.facebook.com" class="facebook" target="_blank">📘</a>
-
-
-
-</div>
-
-</div>
-
-</div>
-
+<!-- HERO -->
 <div class="hero">
-<div class="hero-wrapper">
-
-<div class="hero-content">
-<h1>Best Taxi Service in Delhi</h1>
-<h2>Book Sedan, SUV & Traveller Easily</h2>
-<a href="tel:6376219433" class="btn call-btn">📞 Call Now</a>
-<a href="https://wa.me/916376219433" class="btn whatsapp-btn">💬 WhatsApp</a>
+<h1>Best Taxi Service in Delhi NCR</h1>
+<p>Tempo Traveller | Outstation Taxi | Local Cab</p>
+<a href="tel:6376219433" class="btn">📞 Call Now</a>
 </div>
 
-<div class="booking-form">
-<h3>Book Your Taxi</h3>
-<form>
-<input type="text" placeholder="Your Name" required>
-<input type="tel" placeholder="Mobile Number" required>
-<input type="text" placeholder="Pickup Location" required>
-<input type="text" placeholder="Drop Location" required>
-<select required>
-<option>Select Car</option>
-<option>Sedan</option>
-<option>SUV</option>
-<option>Innova</option>
-<option>Tempo Traveller</option>
-</select>
-<button type="submit">Book Now</button>
-</form>
+<!-- SERVICES -->
+<section>
+<h2 style="text-align:center;color:#f4b400;">Our Services</h2>
+
+<div class="services">
+
+<div class="box">
+<img src="sedan.jpeg" alt="Sedan Taxi in Delhi">
+<h3>Sedan Taxi in Delhi</h3>
+<p>Affordable taxi for daily rides.</p>
+</div>
+
+<div class="box">
+<img src="tempo.jpeg" alt="Tempo Traveller in Delhi">
+<h3>Tempo Traveller in Delhi</h3>
+<p>Best for group travel.</p>
+</div>
+
+<div class="box">
+<img src="suv.jpeg" alt="SUV Taxi Delhi">
+<h3>SUV Taxi Service</h3>
+<p>Comfortable family trips.</p>
+</div>
+
+<div class="box">
+<img src="outstation.jpeg" alt="Outstation Taxi Delhi">
+<h3>Outstation Taxi Delhi</h3>
+<p>Delhi to Jaipur, Agra, Manali.</p>
 </div>
 
 </div>
-</div>
+</section>
 
-<div class="section">
-<h2>OUR TARIFFS</h2>
-<div class="card-container">
-<div class="card">
-<img src="swift.jpeg">
-<h3>SEDAN</h3>
-<p>₹11 / KM</p>
-</div>
-<div class="card">
-<img src="sud.jpeg">
-<h3>SUV</h3>
-<p>₹14 / KM</p>
-</div>
-<div class="card">
-<img src="inova.jpeg">
-<h3>INNOVA</h3>
-<p>₹20 / KM</p>
-</div>
-<div class="card">
-<img src="tempo.jpeg">
-<h3>TEMPO</h3>
-<p>₹25-35 / KM</p>
-</div>
-</div>
-</div>
+<!-- SEO CONTENT -->
+<section>
+<h2 style="text-align:center;color:#f4b400;">Taxi Service in Delhi NCR</h2>
 
-<div class="footer">
-<h3>Choudhary Tour & Travels</h3>
-<p>Safe & Reliable Taxi Service in Delhi</p>
+<div class="content">
+
+<p>Choudhary Tour & Travels provides best taxi service in Delhi NCR including Uttam Nagar, Dwarka, Janakpuri and nearby areas. We offer tempo traveller in Delhi, sedan taxi, SUV and outstation taxi services at affordable price.</p>
+
+<p>If you are searching for Delhi tour & travels or outstation taxi Delhi, we provide safe and reliable service with professional drivers. Our taxi service is available 24x7 for airport pickup, local travel and long trips.</p>
+
+<p>Book your cab now and enjoy comfortable ride with best price guarantee.</p>
+
 </div>
+</section>
+
+<!-- CTA -->
+<section style="text-align:center;">
+<h2>Book Taxi Now</h2>
+<a href="tel:6376219433" class="btn">Call Now</a>
+</section>
+
+<!-- FLOAT -->
+<a href="https://wa.me/916376219433" class="whatsapp">💬</a>
+
+<div class="call">📞 Call Now: 6376219433</div>
 
 </body>
 </html>
