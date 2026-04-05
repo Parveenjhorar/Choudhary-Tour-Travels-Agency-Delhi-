@@ -331,21 +331,15 @@ font-size:20px;
 
 </footer>
 
-<script>
+<!-- <script>
 
-// let data={
-// sedan:[
-// "<img src="sedan.jpeg" alt="image">",
-// "<img src="sud.jpeg" alt="image">",
-// "<img src="sedn.jpeg" alt="image">"
-// ],
-  let data={
+let data={
 sedan:[
-  <img id="sedan" src="sedan.jpeg" alt="Sedan Taxi in Delhi">,
-// "sedan.jpeg",
-// "sud.jpeg",
-// "sedn.jpeg"
-// ],
+"<img src="sedan.jpeg" alt="image">",
+"<img src="sud.jpeg" alt="image">",
+"<img src="sedn.jpeg" alt="image">"
+],
+ 
 suv:[
 "<img src="swift.jpeg" alt="image">",
 "<img src="swiftn.jpeg" alt="image">"
@@ -365,6 +359,44 @@ let index={sedan:0,suv:0,innova:0,tempo:0};
 function change(id,step){
 index[id]=(index[id]+step+data[id].length)%data[id].length;
 document.getElementById(id).src=data[id][index[id]];
+}
+
+</script> -->
+  <script>
+
+let data = {
+sedan:[
+"sedan.jpeg",
+"sud.jpeg",
+"sedn.jpeg"
+],
+
+suv:[
+"swift.jpeg",
+"swiftn.jpeg"
+],
+
+innova:[
+"inova.jpeg",
+"inovan.jpeg"
+],
+
+tempo:[
+"tempo.jpeg",
+"tempon.jpeg"
+]
+};
+
+let index = {
+sedan:0,
+suv:0,
+innova:0,
+tempo:0
+};
+
+function change(id,step){
+index[id] = (index[id] + step + data[id].length) % data[id].length;
+document.getElementById(id).src = data[id][index[id]];
 }
 
 </script>
